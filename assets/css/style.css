@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background: #106900;
+    color: whitesmoke;
+    padding: 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+#homme-page {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.items {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+
+.sameSize {
+    width: 15%;
+    height: 25rem;
+    border: 2px solid black;
+}
+
+#yellow {
+    background: #E0D42B ;
+}
+
+#green {
+    background: #0B2E13;
+}
+
+#blue {
+    background: #16193D;
+}
+
+#brown {
+    background: #69471E;
+}
+
+
+.fa-trash {
+    font-size: 15rem;
+
+}
+
+#poub1 {
+    color:#0B2E13 ;
+
+}
+
+#poub2 {
+    color:#E0D42B ;
+
+}
+
+#poub3 {
+    color:#16193D ;
+}
+
+#poub4 {
+    color:#69471E ;
+}
+
+#selectTrash {
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+#sous-items {
+    width: 100%;
+    display: flex;
+}
+

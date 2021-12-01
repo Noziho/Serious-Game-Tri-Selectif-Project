@@ -1,0 +1,14 @@
+- Faire le HTML/CSS
+	- div vert, div jaune, div rouge, div marron
+	- mettre le logo de la poubelle de la bonne couleur a coté d'eux
+
+- Faire le JS
+	- Apprendre à faire le drag and drop/fonction fléchées
+	- 10 déchets en random, des mots ? des images ? 
+	- Faire un tableau est selectionner 10 entré en aléatoire (Boucle)
+	- Faire les conditions avec l'id des 4 divs + id attribué à chaque entré du tableau,
+	Si possible faire un peu comme le shifumi au niveau des comparaison,
+	exemple: si l'id du div 1 === "rouge" et que déchet X est selectionné validé ou non
+	
+	- Conditions de point, si c'est le bon déchet rajouter 1 point /10 au joueur
+	-

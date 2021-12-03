@@ -31,8 +31,11 @@ body {
 
 }
 
-.case {
+.invisible {
+    opacity: 0;
+}
 
+.case {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;

@@ -1,5 +1,6 @@
 let dechets = [
-    "boiteDeConserve",
+    ["boiteDeConserve", "green"],
+    /*
     "bouteillePlasticVide",
     "bouteillesPlastic",
     "bouteilleVerre",
@@ -9,27 +10,27 @@ let dechets = [
     "dechetsAlimentaires",
     "journaux",
     "yaourt"
-
+    */
 ];
+const boxes = document.querySelectorAll(".case");
+const containerTrash = document.querySelector(".container-container-base");
+let printRandomTrash = document.querySelector(".base");
+
 
 let random = Math.floor(Math.random() * dechets.length);
-const box = document.querySelectorAll(".case");
-let printRandomTrash = document.querySelector(".base");
-const containerTrash = document.querySelector(".container-container-base");
 
-
-printRandomTrash.style.background = "url(/assets/img/" + dechets[random] + ".jpg)";
-printRandomTrash.style.backgroundSize = "200px";
-printRandomTrash.style.backgroundRepeat = "no-repeat";
+printRandomTrash.src = `/assets/img/${dechets[random][0]}.jpg`
+printRandomTrash.id = dechets[random][1]
 
 printRandomTrash.addEventListener('dragstart', dragStart);
 printRandomTrash.addEventListener('dragend', dragEnd);
+printRandomTrash.addEventListener("drop", dragDrop);
 
 //apply at the first time a class for apply an style when we grab the image, and at the second time this function apply an class undefined for delete the BG
 function dragStart() {
-    this.className += ' tenu';
+    this.classList += ' tenu';
 
-    setTimeout(() => (this.className = 'invisible'), 0);
+    setTimeout(() => (this.classList = 'invisible'), 0);
 }
 
 //This function apply an class 'base' when the drag is over
@@ -38,11 +39,11 @@ function dragEnd() {
 }
 
 //A loop for apply an addEventListener for each element of box
-for (const vide of box) {
-    vide.addEventListener('dragover', dragOver);
-    vide.addEventListener('dragenter', dragEnter);
-    vide.addEventListener('dragleave', dragLeave);
-    vide.addEventListener('drop', dragDrop);
+for (const box of boxes) {
+    box.addEventListener('dragover', dragOver);
+    box.addEventListener('dragenter', dragEnter);
+    box.addEventListener('dragleave', dragLeave);
+    box.addEventListener('drop', dragDrop);
 }
 
 // This function is for turn off the Default comportment when the drag are over
@@ -58,28 +59,30 @@ function dragEnter(e) {
 }
 
 //This function is for apply a style when u leave one box
-function dragLeave() {
-    this.className = "case";
+function dragLeave(e) {
+    e.preventDefault();
+
 
 }
 
 //This function is for apply an style when u drop something, and it's for print the image u have dropped
-function dragDrop() {
+function dragDrop(e) {
+    e.preventDefault();
+if (this.id === printRandomTrash.id){
 
-    this.className = "case";
-    this.append(printRandomTrash);
-
-
+}
+    printRandomTrash.remove();
 
 
     const imgCreated = document.createElement("img");
     random = Math.floor(Math.random() * dechets.length);
     imgCreated.classList = "base";
-    imgCreated.src = `/assets/img/${dechets[random]}.jpg`
+    imgCreated.src = `/assets/img/${dechets[random]}.jpg`;
     imgCreated.draggable = "true";
     imgCreated.addEventListener('dragstart', dragStart);
     imgCreated.addEventListener('dragend', dragEnd);
     containerTrash.append(imgCreated);
+    printRandomTrash = document.querySelector(".base");
 
 }
 

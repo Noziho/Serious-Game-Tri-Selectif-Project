@@ -72,17 +72,14 @@ function dragDrop() {
 
 
 
-    const divCreated = document.createElement("div");
+    const imgCreated = document.createElement("img");
     random = Math.floor(Math.random() * dechets.length);
-    divCreated.classList = "base";
-    divCreated.style.background = "url(/assets/img/" + dechets[random] + ".jpg)";
-    divCreated.style.backgroundSize = "200px";
-    divCreated.style.backgroundRepeat = "no-repeat";
-    divCreated.draggable = "true";
-    divCreated.addEventListener('dragstart', dragStart);
-    divCreated.addEventListener('dragend', dragEnd);
-    printRandomTrash.style.display = "none";
-    console.log("dropped");
+    imgCreated.classList = "base";
+    imgCreated.src = `/assets/img/${dechets[random]}.jpg`
+    imgCreated.draggable = "true";
+    imgCreated.addEventListener('dragstart', dragStart);
+    imgCreated.addEventListener('dragend', dragEnd);
+    containerTrash.append(imgCreated);
 
 }
 

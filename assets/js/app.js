@@ -1,27 +1,31 @@
 let dechets = [
     ["boiteDeConserve", "green"],
-    /*
-    "bouteillePlasticVide",
-    "bouteillesPlastic",
-    "bouteilleVerre",
-    "bouteilleVerre2",
-    "briqueLait",
-    "carton",
-    "dechetsAlimentaires",
-    "journaux",
-    "yaourt"
-    */
+    ["bouteillePlasticVide", "yellow"],
+    ["bouteillesPlastic", "yellow"],
+    ["bouteilleVerre", "green"],
+    ["bouteilleVerre2", "green"],
+    ["briqueLait", "yellow"],
+    ["carton", "yellow"],
+    ["dechetsAlimentaires","brown"],
+    ["journaux", "blue"],
+    ["yaourt", "brown"]
 ];
 const boxes = document.querySelectorAll(".case");
 const containerTrash = document.querySelector(".container-container-base");
+const blue = document.getElementById("blue");
+const yellow = document.getElementById("yellow");
+const green = document.getElementById("green");
+const brown = document.getElementById("brown");
+const score = document.getElementById("score");
 let printRandomTrash = document.querySelector(".base");
+
+let counter = 0;
 
 
 let random = Math.floor(Math.random() * dechets.length);
 
-printRandomTrash.src = `/assets/img/${dechets[random][0]}.jpg`
-printRandomTrash.id = dechets[random][1]
-
+printRandomTrash.src = `/assets/img/${dechets[random][0]}.jpg`;
+printRandomTrash.id = dechets[random][1];
 printRandomTrash.addEventListener('dragstart', dragStart);
 printRandomTrash.addEventListener('dragend', dragEnd);
 printRandomTrash.addEventListener("drop", dragDrop);
@@ -68,16 +72,17 @@ function dragLeave(e) {
 //This function is for apply an style when u drop something, and it's for print the image u have dropped
 function dragDrop(e) {
     e.preventDefault();
-if (this.id === printRandomTrash.id){
-
-}
+    if (this.id === printRandomTrash.id){
+        counter++;
+        score.innerHTML = counter + "/10";
+    }
     printRandomTrash.remove();
 
 
     const imgCreated = document.createElement("img");
     random = Math.floor(Math.random() * dechets.length);
     imgCreated.classList = "base";
-    imgCreated.src = `/assets/img/${dechets[random]}.jpg`;
+    imgCreated.src = `/assets/img/${dechets[random][0]}.jpg`;
     imgCreated.draggable = "true";
     imgCreated.addEventListener('dragstart', dragStart);
     imgCreated.addEventListener('dragend', dragEnd);
@@ -85,5 +90,8 @@ if (this.id === printRandomTrash.id){
     printRandomTrash = document.querySelector(".base");
 
 }
+
+
+
 
 

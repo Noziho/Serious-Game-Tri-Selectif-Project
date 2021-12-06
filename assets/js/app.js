@@ -5,23 +5,18 @@ let dechets = [
     ["bouteilleVerre", "green"],
     ["bouteilleVerre2", "green"],
     ["briqueLait", "yellow"],
-    ["carton", "yellow"],
-    ["dechetsAlimentaires","brown"],
+    ["yaourt", "brown"],
+    ["reste", "brown"],
     ["journaux", "blue"],
-    ["yaourt", "brown"]
+    ["carton", "blue"]
+
 ];
+
 const boxes = document.querySelectorAll(".case");
 const containerTrash = document.querySelector(".container-container-base");
-const blue = document.getElementById("blue");
-const yellow = document.getElementById("yellow");
-const green = document.getElementById("green");
-const brown = document.getElementById("brown");
 const score = document.getElementById("score");
 let printRandomTrash = document.querySelector(".base");
-
-let counter = 0;
-
-
+let a = 10;
 let random = Math.floor(Math.random() * dechets.length);
 
 printRandomTrash.src = `/assets/img/${dechets[random][0]}.jpg`;
@@ -68,16 +63,22 @@ function dragLeave(e) {
 
 
 }
+let counter = 0;
+
 
 //This function is for apply an style when u drop something, and it's for print the image u have dropped
 function dragDrop(e) {
     e.preventDefault();
+    a--;
+
     if (this.id === printRandomTrash.id){
         counter++;
-        score.innerHTML = counter + "/10";
     }
     printRandomTrash.remove();
 
+    if (a === 0) {
+        document.location = "score.html";
+    }
 
     const imgCreated = document.createElement("img");
     random = Math.floor(Math.random() * dechets.length);
@@ -86,12 +87,11 @@ function dragDrop(e) {
     imgCreated.draggable = "true";
     imgCreated.addEventListener('dragstart', dragStart);
     imgCreated.addEventListener('dragend', dragEnd);
+    imgCreated.id = dechets[random][1];
+    printRandomTrash.id = dechets[random][1];
     containerTrash.append(imgCreated);
     printRandomTrash = document.querySelector(".base");
 
 }
 
-
-
-
-
+localStorage.setItem("counter", counter.toString());

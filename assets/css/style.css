@@ -41,7 +41,6 @@ body {
     flex-flow: row wrap;
     height: 160px;
     width: 160px;
-    border: 1px solid black;
 }
 
 
@@ -103,7 +102,6 @@ body {
     width: 100%;
     display: flex;
     flex-flow: wrap row;
-    border: 2px solid black;
     height: 200px;
 
 }
@@ -131,4 +129,25 @@ body {
 
 #dechetRandom:hover {
     background: #46c246;
+}
+
+#containerScore {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#scoreBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 30%;
+    background: #0a2d12;
+    color: white;
+    font-size: 3rem;
+}
+p {
+    color: white;
 }

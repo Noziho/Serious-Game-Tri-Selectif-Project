@@ -73,11 +73,14 @@ function dragDrop(e) {
 
     if (this.id === printRandomTrash.id){
         counter++;
+
+
     }
     printRandomTrash.remove();
 
     if (a === 0) {
         document.location = "score.html";
+        localStorage.setItem("counter", counter);
     }
 
     const imgCreated = document.createElement("img");
@@ -94,4 +97,3 @@ function dragDrop(e) {
 
 }
 
-localStorage.setItem("counter", counter.toString());

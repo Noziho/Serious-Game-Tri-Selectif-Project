@@ -24,6 +24,20 @@ printRandomTrash.addEventListener('dragstart', dragStart);
 printRandomTrash.addEventListener('dragend', dragEnd);
 printRandomTrash.addEventListener("drop", dragDrop);
 
+// function for create a new Img for print random trash.
+function createImg () {
+    const imgCreated = document.createElement("img");
+    random = Math.floor(Math.random() * dechets.length);
+    imgCreated.classList = "base";
+    imgCreated.src = `/assets/img/${dechets[random][0]}.jpg`;
+    imgCreated.draggable = "true";
+    imgCreated.addEventListener('dragstart', dragStart);
+    imgCreated.addEventListener('dragend', dragEnd);
+    imgCreated.id = dechets[random][1];
+    printRandomTrash.id = dechets[random][1];
+    containerTrash.append(imgCreated);
+    printRandomTrash = document.querySelector(".base");
+}
 //apply at the first time a class for apply an style when we grab the image, and at the second time this function apply an class undefined for delete the BG
 function dragStart() {
     this.classList += ' tenu';
@@ -82,17 +96,6 @@ function dragDrop(e) {
         localStorage.setItem("counter", counter);
     }
 
-    const imgCreated = document.createElement("img");
-    random = Math.floor(Math.random() * dechets.length);
-    imgCreated.classList = "base";
-    imgCreated.src = `/assets/img/${dechets[random][0]}.jpg`;
-    imgCreated.draggable = "true";
-    imgCreated.addEventListener('dragstart', dragStart);
-    imgCreated.addEventListener('dragend', dragEnd);
-    imgCreated.id = dechets[random][1];
-    printRandomTrash.id = dechets[random][1];
-    containerTrash.append(imgCreated);
-    printRandomTrash = document.querySelector(".base");
+    createImg();
 
 }
-

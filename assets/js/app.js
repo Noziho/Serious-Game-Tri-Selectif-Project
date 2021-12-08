@@ -62,6 +62,7 @@ function dragLeave(e) {
 
 
 }
+
 let counter = 0;
 
 
@@ -70,9 +71,8 @@ function dragDrop(e) {
     e.preventDefault();
     a--;
 
-    if (this.id === printRandomTrash.id){
+    if (this.id === printRandomTrash.id) {
         counter++;
-
 
     }
     printRandomTrash.remove();

@@ -14,7 +14,6 @@ let dechets = [
 
 const boxes = document.querySelectorAll(".case");
 const containerTrash = document.querySelector(".container-container-base");
-const score = document.getElementById("score");
 let printRandomTrash = document.querySelector(".base");
 let a = 10;
 let random = Math.floor(Math.random() * dechets.length);
@@ -29,7 +28,7 @@ printRandomTrash.addEventListener("drop", dragDrop);
 function dragStart() {
     this.classList += ' tenu';
 
-    setTimeout(() => (this.classList = 'invisible'), 0);
+    setTimeout(() => this.classList = 'invisible', 0);
 }
 
 //This function apply an class 'base' when the drag is over

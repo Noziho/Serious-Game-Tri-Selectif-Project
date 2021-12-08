@@ -14,9 +14,11 @@ let dechets = [
 
 const boxes = document.querySelectorAll(".case");
 const containerTrash = document.querySelector(".container-container-base");
+let actualTrash;
 let printRandomTrash = document.querySelector(".base");
 let a = 10;
 let random = Math.floor(Math.random() * dechets.length);
+let trashWrong = [];
 
 printRandomTrash.src = `/assets/img/${dechets[random][0]}.jpg`;
 printRandomTrash.id = dechets[random][1];
@@ -35,8 +37,10 @@ function createImg () {
     imgCreated.addEventListener('dragend', dragEnd);
     imgCreated.id = dechets[random][1];
     printRandomTrash.id = dechets[random][1];
+    actualTrash = dechets[random];
     containerTrash.append(imgCreated);
     printRandomTrash = document.querySelector(".base");
+
 }
 //apply at the first time a class for apply an style when we grab the image, and at the second time this function apply an class undefined for delete the BG
 function dragStart() {
@@ -87,15 +91,16 @@ function dragDrop(e) {
 
     if (this.id === printRandomTrash.id) {
         counter++;
-
+    }
+    else {
+        trashWrong.push(actualTrash);
     }
     printRandomTrash.remove();
-
     if (a === 0) {
-        document.location = "score.html";
         localStorage.setItem("counter", counter);
+        localStorage.setItem("WrongTrash", JSON.stringify(trashWrong));
+        document.location = "score.html";
     }
 
     createImg();
-
 }

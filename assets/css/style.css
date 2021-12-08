@@ -133,13 +133,14 @@ body {
 
 #containerScore {
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #scoreBoard {
     display: flex;
+    flex-flow: wrap row;
     justify-content: center;
     align-items: center;
     width: 50%;
@@ -150,4 +151,30 @@ body {
 }
 p {
     color: white;
+}
+
+#reTry {
+    width: 20%;
+    border-style: none;
+    border-radius: 24px;
+    height: 3rem;
+    background: #0a2d12;
+    color: white;
+}
+
+a {
+    width: 100%;
+    text-decoration: none;
+}
+
+#reTryButton, #wrongTrash {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrongTrash {
+    padding-bottom: 1rem;
 }
